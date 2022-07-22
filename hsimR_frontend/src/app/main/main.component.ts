@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransverseService } from '../service/transverse.service';
 
 @Component({
   selector: 'app-main',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  titre!:string;
 
+  constructor(private transverseService:TransverseService) { 
+    transverseService.change.subscribe(data => {this.titre = data});
+  }
   ngOnInit(): void {
   }
 
