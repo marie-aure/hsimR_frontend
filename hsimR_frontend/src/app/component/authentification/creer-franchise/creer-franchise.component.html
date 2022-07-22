@@ -1,0 +1,23 @@
+<div class="section error" *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
+<div class="section">
+    <form [formGroup]="creerFranchiseForm" (ngSubmit)="creerFranchiseSubmit()">
+        <p>
+            <label for="nomFranchiseInput">Nom de la franchise* : </label>
+            <mat-form-field appearance="legacy">
+                <mat-label>Nom de la franchise</mat-label>
+                <input id="nomFranchiseInput" formControlName="nomFranchise" matInput placeholder="Nom">
+            </mat-form-field>
+        </p>
+        <p>
+            <label for="passwordInput">Mot de passe* : </label>
+            <mat-form-field appearance="legacy">
+                <mat-label>Mot de passe</mat-label>
+                <input id="passwordInput" type="password" formControlName="password" matInput placeholder="Mot de passe">
+            </mat-form-field>
+        </p>
+
+        <button type="submit" [disabled]="!creerFranchiseForm.valid">Créer</button>
+    </form>
+</div>
