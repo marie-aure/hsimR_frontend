@@ -31,8 +31,7 @@ export class CreerFranchiseComponent implements OnInit {
   creerFranchiseSubmit() {
     this.loginService.creerFranchise(new Login(this.creerFranchiseForm.value.nomFranchise, this.creerFranchiseForm.value.password))
       .subscribe(() => {
-        // change to login screen
-        this.router.navigate(['/franchise']);
+        this.router.navigate(['/login']);
       },
         error => {
           this.errorMessage = error.error.message;
