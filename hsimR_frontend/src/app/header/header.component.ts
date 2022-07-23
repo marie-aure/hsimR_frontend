@@ -9,10 +9,12 @@ import { LoginService } from '../service/login.service';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn?:boolean;
+  userRole:string;
 
   constructor(private loginService: LoginService) {
     this.isLoggedIn=loginService.userValue!=null;
     this.loginService.change.subscribe(data => {this.isLoggedIn = data});
+    this.userRole=loginService.userValue.role
    }
 
   ngOnInit(): void {
