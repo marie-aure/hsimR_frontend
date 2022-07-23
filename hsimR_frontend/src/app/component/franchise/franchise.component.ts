@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HelloWorldService } from '../../service/hello-world.service';
+import { TransverseService } from '../../service/transverse.service';
 
 @Component({
   selector: 'app-franchise',
@@ -8,14 +9,17 @@ import { HelloWorldService } from '../../service/hello-world.service';
 })
 export class FranchiseComponent implements OnInit {
 
-  constructor(private helloWorldService:HelloWorldService) { }
+  constructor(private transverseService:TransverseService, private helloWorldService:HelloWorldService) {
+    this.transverseService.updateTitle('Franchise');
+   }
 
   hello:string="";
 
   ngOnInit(): void {
-    this.helloWorldService.getHello().subscribe(res => {
+    
+  this.helloWorldService.getHello().subscribe(res => {
       this.hello=res;
-    });
+    }); 
   }
 
 }
