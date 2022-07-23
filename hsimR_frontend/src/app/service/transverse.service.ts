@@ -9,9 +9,9 @@ export class TransverseService {
   constructor() { }
 
   private emitChangeTitre = new Subject<string>();
-change = this.emitChangeTitre.asObservable();
+  change = this.emitChangeTitre.asObservable();
 
-updateTitle(titre: string){
+  updateTitle(titre: string) {
     this.emitChangeTitre.next(titre);
   }
 }

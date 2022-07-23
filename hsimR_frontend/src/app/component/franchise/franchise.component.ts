@@ -17,9 +17,9 @@ export class FranchiseComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.helloWorldService.getHello().subscribe(res => {
+  this.helloWorldService.getHello().subscribe(res => {
       this.hello=res;
-    });
+    }); 
   }
 
 }

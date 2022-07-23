@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //imports
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
@@ -15,6 +15,9 @@ import { FranchiseComponent } from './component/franchise/franchise.component';
 import { ErrorComponent } from './component/error/error.component';
 import { CreerFranchiseComponent } from './component/authentification/creer-franchise/creer-franchise.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './component/authentification/login/login.component';
+import { BasicAuthInterceptor } from './interceptor/basic-auth.interceptor';
+import { ErrorInterceptor } from './interceptor/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { HeaderComponent } from './header/header.component';
     FranchiseComponent,
     ErrorComponent,
     CreerFranchiseComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
