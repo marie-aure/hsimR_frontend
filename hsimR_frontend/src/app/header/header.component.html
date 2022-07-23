@@ -9,6 +9,9 @@
     <div class="navbar-section">
         <ul class="navbar-ul">
             <li class="navbar-button">
+                <a class="navbar-link" routerLink="admin/dashboard" routerLinkActive="active">Dashboard admin</a>
+            </li>
+            <li class="navbar-button">
                 <a class="navbar-link" routerLink="creerFranchise" routerLinkActive="active">Créer une franchise</a>
             </li>
             <li class="navbar-button" *ngIf="!isLoggedIn">
