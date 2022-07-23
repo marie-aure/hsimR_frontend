@@ -6,7 +6,7 @@ import { LoginService } from '../service/login.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -15,11 +15,10 @@ export class AuthenticationGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const user = this.loginService.userValue;
-    if (user) {
+    if (user && user.role=="ROLE_ADMIN") {
       return true;
     }
 
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 
