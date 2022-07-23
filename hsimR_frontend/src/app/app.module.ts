@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './component/authentification/login/login.component';
 import { BasicAuthInterceptor } from './interceptor/basic-auth.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
     ErrorComponent,
     CreerFranchiseComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
