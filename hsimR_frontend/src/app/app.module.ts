@@ -19,6 +19,7 @@ import { LoginComponent } from './component/authentification/login/login.compone
 import { BasicAuthInterceptor } from './interceptor/basic-auth.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin-dashboard.component';
+import { AdminTourSuivantComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin
     CreerFranchiseComponent,
     HeaderComponent,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminTourSuivantComponent
   ],
   imports: [
     BrowserModule,
