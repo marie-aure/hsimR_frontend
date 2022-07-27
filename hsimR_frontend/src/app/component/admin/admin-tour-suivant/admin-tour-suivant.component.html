@@ -1,13 +1,41 @@
+<div class="section error" *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
 <div class="section section-grid">
     <div class="info-container">
         <h2>Tour en cours</h2>
-        <p>Semaine - {{tourActif?.semaineMois}}<br/>
-        Mois - {{tourActif?.mois}} ({{tourActif?.numeroMois}})<br/>
-        Année - {{tourActif?.annee}}<br/>
-        Clé technique - {{tourActif?.cle}}<br/></p>
+        <p>Semaine - {{tourActif?.semaineMois }}
+            <br/> Mois - {{tourActif?.mois}} ({{tourActif?.numeroMois}})
+            <br/> Année - {{tourActif?.annee}}
+            <br/> Clé technique - {{tourActif?.cle}}
+            <br/>
+        </p>
     </div>
     <div class="info-container">
         <h2>Changement de tour</h2>
-        <p>guyry</p>
+        <p>Changement de mois : {{infoPassage?.changementMois?'Oui':'Non'}}</p>
+        <p>Changement d'année : {{infoPassage?.changementAnnee?'Oui':'Non'}}</p>
+        <p>Semaine - {{infoPassage?.tourSuivant?.semaineMois}}
+            <br/> Mois - {{infoPassage?.tourSuivant?.mois}} ({{infoPassage?.tourSuivant?.numeroMois}})
+            <br/> Année - {{infoPassage?.tourSuivant?.annee}}
+            <br/> Clé technique - {{infoPassage?.tourSuivant?.cle}}
+            <br/>
+        </p>
+    </div>
+    <div class="info-container">
+        <h2>Valider la fin du tour</h2>
+        <div class="center-button">
+            <button [disabled]="false" (click)="validerFinDuTour()">Valider</button>
+        </div>
+    </div>
+</div>
+<div class="section section-grid" *ngIf="infoPassage?.changementMois || infoPassage?.changementAnnee">
+    <div class="info-container" *ngIf="infoPassage?.changementMois">
+        <h2>Changement de mois</h2>
+        <p>Rien pour l'instant</p>
+    </div>
+    <div class="info-container" *ngIf="infoPassage?.changementAnnee">
+        <h2>Changement d'année</h2>
+        <p>Rien pour l'instant</p>
     </div>
 </div>

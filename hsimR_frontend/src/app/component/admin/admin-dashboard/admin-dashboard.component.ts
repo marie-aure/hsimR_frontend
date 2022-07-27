@@ -17,6 +17,8 @@ export class AdminDashboardComponent implements OnInit {
     this.transverseService.updateTitle("Dashboard administrateur");
     this.tourService.getTourActif().subscribe(res => {
       this.tourActif = res;
+      this.tourActif.semaineMois ++;
+      this.tourActif.annee ++;
     })
   }
 
