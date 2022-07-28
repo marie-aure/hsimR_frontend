@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from "@angular/material/dialog";
 
 //components
 import { AppComponent } from './app.component';
@@ -19,6 +20,8 @@ import { LoginComponent } from './component/authentification/login/login.compone
 import { BasicAuthInterceptor } from './interceptor/basic-auth.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin-dashboard.component';
+import { AdminTourSuivantComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant.component';
+import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant-confirm-dialog/admin-tour-suivant-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin
     CreerFranchiseComponent,
     HeaderComponent,
     LoginComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminTourSuivantComponent,
+    AdminTourSuivantConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin
     BrowserAnimationsModule,
     FormsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],

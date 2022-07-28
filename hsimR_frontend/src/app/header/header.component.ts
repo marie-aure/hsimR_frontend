@@ -13,8 +13,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginService) {
     this.isLoggedIn=loginService.userValue!=null;
-    this.loginService.change.subscribe(data => {this.isLoggedIn = data});
-    this.userRole=loginService.userValue.role
+    this.userRole=loginService.userValue?loginService.userValue.role:'';
+    this.loginService.change.subscribe(data => {this.isLoggedIn = data;
+      this.userRole=loginService.userValue?loginService.userValue.role:''});
    }
 
   ngOnInit(): void {
