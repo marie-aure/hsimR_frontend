@@ -19,7 +19,7 @@ export class AdminDashboardComponent implements OnInit {
       this.tourActif = res;
       this.tourActif.semaineMois ++;
       this.tourActif.annee ++;
-    })
+    });
   }
 
   ngOnInit(): void {
