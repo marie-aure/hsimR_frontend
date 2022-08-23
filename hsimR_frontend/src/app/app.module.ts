@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from "@angular/material/dialog";
+import {MatIconModule} from '@angular/material/icon';
 
 //components
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],

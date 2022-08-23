@@ -9,4 +9,8 @@ import { Franchise } from '../model/franchise';
 export class FranchiseService {
 
   constructor(private httpClient:HttpClient) { }
+
+  getFranchise():Observable<Franchise>{
+    return this.httpClient.get<Franchise>("http://localhost:8080/api/franchise/getInfo");
+  }
 }
