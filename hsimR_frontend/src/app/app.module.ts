@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatIconModule} from '@angular/material/icon';
+import { MatTableModule } from "@angular/material/table";
 
 //components
 import { AppComponent } from './app.component';
@@ -46,7 +47,8 @@ import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
