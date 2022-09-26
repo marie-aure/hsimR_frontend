@@ -9,6 +9,7 @@ import { AuthenticationGuard } from './guard/authentication.guard';
 import { AdminGuard } from './guard/admin.guard';
 import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin-dashboard.component';
 import { AdminTourSuivantComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant.component';
+import { AdminPreviewComponent } from './component/admin/admin-preview/admin-preview.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'franchise', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'admin/dashboard', canActivate:[AuthenticationGuard, AdminGuard], component: AdminDashboardComponent},
     { path: 'admin/tourSuivant', canActivate:[AuthenticationGuard, AdminGuard], component: AdminTourSuivantComponent},
+    { path: 'admin/preview', canActivate:[AuthenticationGuard, AdminGuard], component: AdminPreviewComponent},
     { path: '**', component: ErrorComponent }
   ]}
 

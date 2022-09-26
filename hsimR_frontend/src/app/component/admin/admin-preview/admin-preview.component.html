@@ -1,0 +1,30 @@
+<div class="section">
+    <h2>Test transaction</h2>
+    <form [formGroup]="creerTransaction" (ngSubmit)="creerTransactionSubmit()">
+        <p>
+            <label for="destinataireInput">Destinataire : </label>
+            <mat-form-field appearance="fill">
+                <mat-label>No one (just for test)</mat-label>
+                <mat-select formControlName="franchiseControle">
+                    <mat-option *ngFor="let fra of franchises" value="{{fra.id}}">{{fra.nom}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <p>
+            <label for="montantInput">Montant* : </label>
+            <mat-form-field appearance="legacy">
+                <mat-label>{{creerTransaction.value.montantControle||'0.00'}}$</mat-label>
+                <input id="montantInput" type="number" (change)="twoDecimalValue()"step="0.01" min="0" formControlName="montantControle" matInput placeholder="Montant">
+            </mat-form-field>
+        </p>
+        <p>
+            <label for="libelleInput">Libellé* : </label>
+            <mat-form-field appearance="legacy">
+                <mat-label>Libellé</mat-label>
+                <input id="libelleInput" type="text"  matInput formControlName="libelleControle" placeholder="Libellé">
+            </mat-form-field>
+        </p>
+        
+        <button type="submit" [disabled]="!creerTransaction.valid" >Valider</button>
+    </form>
+</div>

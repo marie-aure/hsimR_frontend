@@ -13,4 +13,8 @@ export class FranchiseService {
   getFranchise():Observable<Franchise>{
     return this.httpClient.get<Franchise>("http://localhost:8080/api/franchise/getInfo");
   }
+
+  getDestinataire():Observable<Franchise[]>{
+    return this.httpClient.get<Franchise[]>("http://localhost:8080/api/franchise/destinataire");
+  }
 }
