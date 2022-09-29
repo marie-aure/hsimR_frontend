@@ -6,6 +6,7 @@ import { FranchiseService } from '../../../service/franchise.service';
 import { BanqueService } from '../../../service/banque.service';
 import { Transaction } from '../../../model/transaction';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-preview',
@@ -21,7 +22,7 @@ export class AdminPreviewComponent implements OnInit {
     libelleControle : new FormControl('', Validators.required)
   })
 
-  constructor(private transverseService:TransverseService, private franchiseService:FranchiseService, private banqueService:BanqueService) {
+  constructor(private transverseService:TransverseService, private franchiseService:FranchiseService, private banqueService:BanqueService, private router:Router) {
     this.transverseService.updateTitle('Admin preview');
    }
   
@@ -31,7 +32,7 @@ export class AdminPreviewComponent implements OnInit {
   }
 
   creerTransactionSubmit(){
-    this.banqueService.creerDepense(new Transaction(this.creerTransaction.value.montantControle,this.creerTransaction.value.libelleControle,null,{id:this.creerTransaction.value.franchiseControle},null)).subscribe(res => {console.log(res)}, error => {console.log(error)});
+    this.banqueService.creerDepense(new Transaction(this.creerTransaction.value.montantControle,this.creerTransaction.value.libelleControle,null,this.creerTransaction.value.franchiseControle!=null?{id:this.creerTransaction.value.franchiseControle}:null,null)).subscribe(res => {console.log(res); this.router.navigate(['/franchise'])}, error => {console.log(error)});
   }
 
   twoDecimalValue(){
