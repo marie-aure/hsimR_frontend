@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatIconModule} from '@angular/material/icon';
 import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from '@angular/material/select';
 
 //components
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin-dashboard.component';
 import { AdminTourSuivantComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant.component';
 import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant-confirm-dialog/admin-tour-suivant-confirm-dialog.component';
+import { AdminPreviewComponent } from './component/admin/admin-preview/admin-preview.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-
     LoginComponent,
     AdminDashboardComponent,
     AdminTourSuivantComponent,
-    AdminTourSuivantConfirmDialogComponent
+    AdminTourSuivantConfirmDialogComponent,
+    AdminPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-
     ReactiveFormsModule,
     MatDialogModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],

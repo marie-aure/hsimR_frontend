@@ -1,7 +1,7 @@
 export class Franchise {
 
     id: number;
-    nom: string;
+    nom!: string;
     password: string;
     argent: number;
     role: string;
