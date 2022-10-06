@@ -15,4 +15,8 @@ export class BanqueService {
     return this.httpClient.post<Transaction>("http://localhost:8080/api/banque/depense",transaction);
   }
 
+  historique(type:string): Observable<Transaction[]> {
+    return this.httpClient.get<Transaction[]>("http://localhost:8080/api/banque/historique/"+type);
+  }
+
 }
