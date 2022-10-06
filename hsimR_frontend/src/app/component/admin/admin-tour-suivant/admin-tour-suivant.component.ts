@@ -6,6 +6,7 @@ import { InfoPassage } from '../../../model/info-passage';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminTourSuivantConfirmDialogComponent } from './admin-tour-suivant-confirm-dialog/admin-tour-suivant-confirm-dialog.component';
 import { Router } from '@angular/router';
+import { Trace } from '../../../model/trace';
 
 @Component({
   selector: 'app-admin-tour-suivant',
@@ -19,6 +20,9 @@ export class AdminTourSuivantComponent implements OnInit {
   infoPassage?: InfoPassage;
   //Error message
   errorMessage!: string;
+  //traces
+  traces:Trace[]=[];
+  traceCol=['description','franchise','date'];
 
   constructor(private transverseService: TransverseService, private tourService: TourService, private dialog: MatDialog, private router:Router) {
     this.transverseService.updateTitle("Fin du tour");
@@ -36,6 +40,7 @@ export class AdminTourSuivantComponent implements OnInit {
       this.infoPassage.tourSuivant.annee++;
       console.log(this.infoPassage);
     });
+    this.transverseService.getTrace(["FIN_TOUR"]).subscribe(res => {this.traces=res;});
   }
 
   validerFinDuTour() {

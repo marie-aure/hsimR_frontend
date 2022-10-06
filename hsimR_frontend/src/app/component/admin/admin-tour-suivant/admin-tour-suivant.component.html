@@ -39,3 +39,22 @@
         <p>Rien pour l'instant</p>
     </div>
 </div>
+<div class="section">
+    <table mat-table [dataSource]="traces" class="info-table" >
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let trace"> {{trace.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="franchise">
+            <th mat-header-cell *matHeaderCellDef> Franchise </th>
+            <td mat-cell *matCellDef="let trace"> {{trace.franchise?.nom}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let trace"> {{trace.date}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="traceCol"></tr>
+        <tr mat-row *matRowDef="let traces; columns: traceCol"></tr>
+    </table>
+
+</div>
