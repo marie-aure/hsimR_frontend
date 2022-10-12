@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Tour } from 'src/app/model/tour';
+import { TourService } from 'src/app/service/tour.service';
+import { TransverseService } from 'src/app/service/transverse.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,7 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  //variables
+  tourActif?:Tour;
+
+  constructor(private transverseService:TransverseService, private tourService:TourService) { 
+    this.transverseService.updateTitle("Dashboard administrateur");
+    this.tourService.getTourActif().subscribe(res => {
+      this.tourActif = res;
+      this.tourActif.semaineMois ++;
+      this.tourActif.annee ++;
+    });
+  }
 
   ngOnInit(): void {
   }

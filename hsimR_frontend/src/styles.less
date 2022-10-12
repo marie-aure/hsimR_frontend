@@ -39,6 +39,7 @@ p {
     border: 0;
     outline: 0;
     font-size: 100%;
+	line-height: 25px;
     vertical-align: baseline;
 	background: transparent;
 }
@@ -52,16 +53,21 @@ ul {
 	margin : 0px;
 }
 
-button{
+button,.button-link{
+	text-decoration: none;
 	background-color: rgb(248, 237, 237);
 	border-radius: 3px;
 	border: none;
 	color: rgb(77, 77, 77);
 	padding: 5px 15px;
+	margin: 5px;
+	vertical-align:middle;
 }
 
-button:hover{
+
+button:hover,.button-link:hover{
 	background-color: rgb(234, 218, 200);
+	color: rgb(77, 77, 77);
 }
 
 button:disabled{
@@ -90,7 +96,94 @@ button:disabled{
 	margin-top: 20px;
 }
 
+.section-grid{
+	display: flex;
+	justify-content: flex-start;
+	gap: 100px;
+}
+
+//other
+.info-container{
+	margin: 10px 10px 20px 10px;
+	vertical-align: top;
+	text-align: left;
+	font-family: Verdana;
+	font-size: medium;
+	color: rgb(77, 77, 77);
+	border-radius: 5px;
+	padding: 0px 10px 20px 10px;
+	border: solid 1px transparent;
+}
+
+.info-container:hover{
+	//background-color: rgb(248, 237, 237);
+	//box-shadow: 1px 1px 1px grey;
+	border: solid 1px lightgrey;
+}
+
+.info-container span{
+	display: block;
+}
+
+.container-grid{
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+}
+
+.container-label{
+	font-weight: bold;
+}
+
 .error{
 	background-color: pink;
 	color:red;
 }
+
+//tables
+.mat-table {
+	background-color:transparent!important;  
+  }
+  
+  table {
+	  margin: 10px 0px 10px 0px;
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden !important;
+  }
+  
+  .mat-header-row {
+	  background-color: rgb(234, 218, 200);
+  }
+  
+  .mat-header-cell {
+	  font-weight: bold;
+	  font-size: 15px;
+	  padding: 8px 8px 8px 8px !important;
+  }
+  
+  .mat-cell {
+	padding: 8px 8px 8px 8px !important;
+  }
+
+  .mat-row {
+	  background-color: rgb(248, 237, 237);
+  }
+  
+  .select-table .mat-row .mat-cell {
+	  border-bottom: 2px solid transparent;
+	  border-top: 2px solid transparent;
+	  cursor: pointer;
+	}
+	
+	.select-table .mat-row:hover .mat-cell {
+	  border-color: currentColor;
+	  background-color: rgba(247, 244, 244, 0.5);
+	}
+	
+	.select-table .demo-row-is-clicked {
+	  font-weight: bold;
+	  background-color: rgba(247, 244, 244, 0.5);
+	}
+  
