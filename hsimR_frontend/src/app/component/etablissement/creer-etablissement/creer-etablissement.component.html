@@ -24,8 +24,8 @@
           </mat-form-field>
 
     </div>
-   
-<button type="submit" (click)="useToken(false)" [disabled]="!etablissementForm.valid">Créer (100 000$)</button> 
+
+<button type="submit" (click)="useToken(false)" [disabled]="!etablissementForm.valid || franchise.argent <100000">Créer (100 000$)</button> 
 <button type="submit" (click)="useToken(true)" [disabled]="!etablissementForm.valid || franchise.tokenEtablissement <= 0">Créer (1 token)</button>
 </form>
 

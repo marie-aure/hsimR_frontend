@@ -6,6 +6,7 @@ import { LoginService } from '../../../service/login.service';
 import { TransverseService } from '../../../service/transverse.service';
 import { EtablissementService } from '../../../service/etablissement.service';
 import { Router } from '@angular/router';
+import { FranchiseService } from '../../../service/franchise.service';
 
 @Component({
   selector: 'app-creer-etablissement',
@@ -26,13 +27,14 @@ export class CreerEtablissementComponent implements OnInit {
   etablissementCree!: Etablissement
   errorMessage: string = "";
 
-  constructor(private loginService: LoginService, private transverseService: TransverseService, private etablissementService: EtablissementService, private router: Router) {
+  constructor(private loginService: LoginService, private franchiseService:FranchiseService, private transverseService: TransverseService, private etablissementService: EtablissementService, private router: Router) {
     this.transverseService.updateTitle('Créer un établissement');
     this.franchise = this.loginService.userValue;
   }
 
   ngOnInit() {
     this.etablissementService.getTypeEtablissement().subscribe(res => { this.lTypesEtablissement = res });
+    this.franchiseService.getFranchise().subscribe(res => this.franchise = res);
   }
 
   useToken(use: boolean) {
