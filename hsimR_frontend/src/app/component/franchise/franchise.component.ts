@@ -7,6 +7,7 @@ import { Transaction } from '../../model/transaction';
 import { Tour } from '../../model/tour';
 import { BanqueService } from '../../service/banque.service';
 import { Etablissement } from '../../model/etablissement';
+import { EtablissementService } from '../../service/etablissement.service';
 
 @Component({
   selector: 'app-franchise',
@@ -20,14 +21,14 @@ lDepenses:Transaction[]=[new Transaction(0,"treeeeeeeeeeeeeeeeeeeees lonnnnnnnnn
 depensesColonnes=["tour","destinataire","libelle","montant"];
 lGains:Transaction[] = [new Transaction(100,"treeeeeeeeeeeeeeeeeeeees lonnnnnnnnnnnnnnnnng libeeeeeeeeeellé",new Franchise(1,"NomS","",0,"",0,0,undefined),{id:1},new Tour(0,"MOIS",1,2,0))];
 gainsColonnes=["tour","emetteur","libelle","montant"];
-lEtablissements:Etablissement[] = [new Etablissement(1,"Etablissement 1",{type:"",libelle:"Elevage"}),new Etablissement(2,"Etablissement 2",{type:"",libelle:"Elevage"})];
+lEtablissements:Etablissement[] = [];
 etablissementColonnes=["nom","type","details"];
 
 
 //ecran
 financeSection:boolean = false;
 
-  constructor(private transverseService:TransverseService, private loginService:LoginService, private franchiseService:FranchiseService, private banqueService:BanqueService) {
+  constructor(private transverseService:TransverseService, private loginService:LoginService, private franchiseService:FranchiseService, private banqueService:BanqueService, private etablissementService:EtablissementService) {
     //nom provisoire en attendant le nom de la franchise
     this.transverseService.updateTitle('Franchise');
     this.franchise = this.loginService.userValue;
@@ -38,6 +39,7 @@ financeSection:boolean = false;
     this.franchiseService.getFranchise().subscribe(res => {this.franchise = res});
     this.banqueService.historique("depense").subscribe(res => {this.lDepenses = res});
     this.banqueService.historique("gain").subscribe(res => {this.lGains = res});
+    this.etablissementService.getListeEtablissement().subscribe(res => this.lEtablissements = res);
   }
 
   showFinance(){
