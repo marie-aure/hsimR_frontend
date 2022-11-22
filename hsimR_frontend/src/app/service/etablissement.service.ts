@@ -18,4 +18,8 @@ export class EtablissementService {
     return this.httpClient.post<void>("http://localhost:8080/api/etablissement/creer/" + token, etablissement);
   }
 
+  getListeEtablissement():Observable<Etablissement[]>{
+     return this.httpClient.get<Etablissement[]>("http://localhost:8080/api/etablissement/liste");
+  }
+
 }
