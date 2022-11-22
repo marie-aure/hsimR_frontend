@@ -17,9 +17,9 @@ import { EtablissementService } from '../../service/etablissement.service';
 export class FranchiseComponent implements OnInit {
 
 franchise!:Franchise;
-lDepenses:Transaction[]=[new Transaction(0,"treeeeeeeeeeeeeeeeeeeees lonnnnnnnnnnnnnnnnng libeeeeeeeeeellé",null,new Franchise(1,"NomD","",0,"",0,0,undefined),new Tour(0,"MOIS",1,2,0))];
+lDepenses:Transaction[]=[];
 depensesColonnes=["tour","destinataire","libelle","montant"];
-lGains:Transaction[] = [new Transaction(100,"treeeeeeeeeeeeeeeeeeeees lonnnnnnnnnnnnnnnnng libeeeeeeeeeellé",new Franchise(1,"NomS","",0,"",0,0,undefined),{id:1},new Tour(0,"MOIS",1,2,0))];
+lGains:Transaction[] = [];
 gainsColonnes=["tour","emetteur","libelle","montant"];
 lEtablissements:Etablissement[] = [];
 etablissementColonnes=["nom","type","details"];
