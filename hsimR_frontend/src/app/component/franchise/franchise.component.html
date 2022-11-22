@@ -97,7 +97,12 @@
         <tr mat-row *matRowDef="let etab; columns: etablissementColonnes;"></tr>
     </table>
 
+</div>
+<div class="section section-grid">
+    <div class="info-container">
+        <h2>Créer un établissement</h2>
     <div class="button-container">
         <a class="button-link" [ngClass]="{'disabledLink':franchise.argent < 100000 && franchise.tokenEtablissement < 1}" routerLink="/creerEtablissement" routerLinkActive="active">Créer un établissement</a>
+    </div>
     </div>
 </div>
