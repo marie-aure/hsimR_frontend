@@ -36,10 +36,10 @@ financeSection:boolean = false;
   }
 
   ngOnInit(): void {
-    this.franchiseService.getFranchise().subscribe(res => {this.franchise = res});
+    this.franchiseService.getFranchise().subscribe(res => {this.franchise = res; this.transverseService.updateTitle(this.franchise.nom)});
     this.banqueService.historique("depense").subscribe(res => {this.lDepenses = res});
     this.banqueService.historique("gain").subscribe(res => {this.lGains = res});
-    this.etablissementService.getListeEtablissement().subscribe(res => this.lEtablissements = res);
+    this.etablissementService.getListeEtablissement().subscribe(res => {console.log(res);this.lEtablissements = res});
   }
 
   showFinance(){
