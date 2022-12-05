@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Etablissement } from '../model/etablissement';
 
@@ -20,6 +20,10 @@ export class EtablissementService {
 
   getListeEtablissement():Observable<Etablissement[]>{
      return this.httpClient.get<Etablissement[]>("http://localhost:8080/api/etablissement/liste");
+  }
+
+  getEtablissement(id:number):Observable<Etablissement>{
+    return this.httpClient.get<Etablissement>("http://localhost:8080/api/etablissement/" + id);
   }
 
 }

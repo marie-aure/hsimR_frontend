@@ -12,10 +12,125 @@
             </div>
             <div>
                 <p>
-                    <span>Mon établissement</span>
-                    <span>Performance</span>
+                    <span>{{etablissement.nom}}</span>
+                    <span>{{etablissement.type.libelle}}</span>
                     <span>3</span>
                     <span>6</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <h2>Personnel</h2>
+    <table mat-table [dataSource]="lPersonnels">
+        <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <td mat-cell *matCellDef="let per">{{per.nom}} {{per.prenom}}</td>
+        </ng-container>
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Rôle </th>
+            <td mat-cell *matCellDef="let per"> {{per.role.libelle}} </td>
+        </ng-container>
+        <ng-container matColumnDef="genre">
+            <th mat-header-cell *matHeaderCellDef> Genre </th>
+            <td mat-cell *matCellDef="let per"> {{per.genre}} </td>
+        </ng-container>
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Age </th>
+            <td mat-cell *matCellDef="let per"> {{per.age}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="personnelColonnes"></tr>
+        <tr mat-row *matRowDef="let per; columns: personnelColonnes;"></tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Ecurie</h2>
+    <table mat-table [dataSource]="lChevaux">
+        <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <td mat-cell *matCellDef="let che">{{che.prefixe}} {{che.nom}} {{che.suffixe}}</td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let che"> {{che.type.libelle}} </td>
+        </ng-container>
+        <ng-container matColumnDef="race">
+            <th mat-header-cell *matHeaderCellDef> Race </th>
+            <td mat-cell *matCellDef="let che"> {{che.race}} </td>
+        </ng-container>
+        <ng-container matColumnDef="genre">
+            <th mat-header-cell *matHeaderCellDef> Genre </th>
+            <td mat-cell *matCellDef="let che"> {{che.genre}} </td>
+        </ng-container>
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Age </th>
+            <td mat-cell *matCellDef="let che"> {{che.age}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="chevauxColonnes"></tr>
+        <tr mat-row *matRowDef="let che; columns: chevauxColonnes;"></tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Concours</h2>
+    <table mat-table [dataSource]="lConcours">
+        <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <td mat-cell *matCellDef="let con">{{con.nom}}</td>
+        </ng-container>
+        <ng-container matColumnDef="discipline">
+            <th mat-header-cell *matHeaderCellDef> Discipline </th>
+            <td mat-cell *matCellDef="let con"> {{con.discipline}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let con"> {{con.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="statut">
+            <th mat-header-cell *matHeaderCellDef> Statut </th>
+            <td mat-cell *matCellDef="let con"> {{con.statut}} </td>
+        </ng-container>
+        <ng-container matColumnDef="details">
+            <th mat-header-cell *matHeaderCellDef> Détails </th>
+            <td mat-cell *matCellDef="let con">
+                <div class="button-container">
+                    <a class="button-link disabledLink" [routerLink]="['/franchise']">Ouvrir</a>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="concoursColonnes"></tr>
+        <tr mat-row *matRowDef="let con; columns: concoursColonnes;"></tr>
+    </table>
+</div>
+<div class="section section-grid">
+    <div class="info-container">
+        <h2>Action 1</h2>
+        <div class="container-grid">
+            <div class="container-label">
+                <p>
+                    <span>Truc à faire </span>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <span>Ouaip avec un bouton ? </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="info-container">
+        <h2>Action 2</h2>
+        <div class="container-grid">
+            <div class="container-label">
+                <p>
+                    <span>Truc à faire </span>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <span>Ouaip avec un bouton ? </span>
                 </p>
             </div>
         </div>

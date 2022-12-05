@@ -19,7 +19,7 @@ const routes: Routes = [
     { path: 'franchise', canActivate:[AuthenticationGuard], component: FranchiseComponent },
     { path: 'creerEtablissement', canActivate:[AuthenticationGuard], component: CreerEtablissementComponent },
     { path: 'creerFranchise', component: CreerFranchiseComponent},
-    { path: 'etablissement/:id', component: EtablissementComponent},
+    { path: 'etablissement/:idEtablissement', component: EtablissementComponent},
     { path: 'login', component: LoginComponent},
     { path: 'admin/dashboard', canActivate:[AuthenticationGuard, AdminGuard], component: AdminDashboardComponent},
     { path: 'admin/tourSuivant', canActivate:[AuthenticationGuard, AdminGuard], component: AdminTourSuivantComponent},
