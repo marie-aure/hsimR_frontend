@@ -1,18 +1,34 @@
 <div class="section section-grid">
     <div class="info-container">
         <h2>Tour en cours</h2>
-        <p>Semaine - {{tourActif?.semaineMois}}<br/>
-        Mois - {{tourActif?.mois}} ({{tourActif?.numeroMois}})<br/>
-        Année - {{tourActif?.annee}}<br/>
-        Clé technique - {{tourActif?.cle}}<br/></p>
-
+        <div class="container-grid">
+            <div class="container-label">
+                <p>
+                    <span>Semaine : </span>
+                    <span>Mois : </span>
+                    <span>Année : </span>
+                    <span>Clé technique : </span>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <span>{{tourActif?.semaineMois}}</span>
+                    <span>{{tourActif?.mois}} ({{tourActif?.numeroMois}})</span>
+                    <span>{{tourActif?.annee}}</span>
+                    <span>{{tourActif?.cle}}</span>
+                </p>
+            </div>
+        </div>
         <a class="button-link" routerLink="/admin/tourSuivant" routerLinkActive="active">Fin de tour</a>
     </div>
     <div class="info-container">
         <h2>Ecran de test</h2>
-        <p>Test en cours :<br/>
-        Générateur de transaction
-        </p>
+        <div>
+            <p>
+                <span>Test en cours :</span>
+                <span>Générateur de transaction</span>
+            </p>
+        </div>
 
         <a class="button-link" routerLink="/admin/preview" routerLinkActive="active">Test</a>
     </div>

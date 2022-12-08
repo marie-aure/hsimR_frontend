@@ -26,6 +26,9 @@ import { AdminDashboardComponent } from './component/admin/admin-dashboard/admin
 import { AdminTourSuivantComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant.component';
 import { AdminTourSuivantConfirmDialogComponent } from './component/admin/admin-tour-suivant/admin-tour-suivant-confirm-dialog/admin-tour-suivant-confirm-dialog.component';
 import { AdminPreviewComponent } from './component/admin/admin-preview/admin-preview.component';
+import { CreerEtablissementComponent } from './component/etablissement/creer-etablissement/creer-etablissement.component';
+import { EtablissementComponent } from './component/etablissement/etablissement/etablissement.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { AdminPreviewComponent } from './component/admin/admin-preview/admin-pre
     AdminDashboardComponent,
     AdminTourSuivantComponent,
     AdminTourSuivantConfirmDialogComponent,
-    AdminPreviewComponent
+    AdminPreviewComponent,
+    CreerEtablissementComponent,
+    EtablissementComponent
   ],
   imports: [
     BrowserModule,

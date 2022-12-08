@@ -1,0 +1,32 @@
+<div class="section error" *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
+<div class="section">
+   <form [formGroup]="etablissementForm" (ngSubmit)="creerEtablissement()">
+
+    <div formGroupName="etablissement">
+        <p>
+            <label for="nomEtablissementInput">Nom de l'établissement : </label>
+            <mat-form-field appearance="legacy">
+                <mat-label>Nom de l'établissement</mat-label>
+                <input id="nomEtablissementInput" formControlName="nomEtablissement" matInput placeholder="Nom">
+            </mat-form-field>
+        </p>
+
+        <label for="typeEtablissementInput">Type de l'établissement : </label>
+        <mat-form-field appearance="legacy">
+            <mat-label>Type de l'établissement</mat-label>
+            <mat-select id="typeEtablissementInput" formControlName="typeEtablissement">
+              <mat-option *ngFor="let type of lTypesEtablissement" [value]="type.type">
+                {{type.libelle}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+    </div>
+
+<button type="submit" (click)="useToken(false)" [disabled]="!etablissementForm.valid || franchise.argent <100000">Créer (100 000$)</button> 
+<button type="submit" (click)="useToken(true)" [disabled]="!etablissementForm.valid || franchise.tokenEtablissement <= 0">Créer (1 token)</button>
+</form>
+
+</div>

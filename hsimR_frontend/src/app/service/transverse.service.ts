@@ -20,4 +20,10 @@ export class TransverseService {
   getTrace(types:string[]):Observable<Trace[]>{
     return this.httpClient.post<Trace[]>("http://localhost:8080/api/trace/admin/get",types);
   }
+
+  getErrorMessage(code:number):string{
+    let errorMessage:string = 'Unknown error with code ' + code ;
+    if (code == 403)errorMessage = 'Cette page n\'est pas autorisée pour la franchise connectée';
+    return errorMessage;
+  }
 }
